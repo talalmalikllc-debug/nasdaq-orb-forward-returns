@@ -24,13 +24,15 @@
 
 ### Event definition
 * **Opening range (OR):** high and low of 09:30 to 10:00 New York time.
-* **Breakout:** the first 5-minute bar between 10:00 and 11:00 that trades a buffer $\delta$ beyond the range ($\delta$ = 10 broker points = 0.10 index points). Entry is at the stop level $E_i = \text{OR}_{\text{high}} + \delta$ for a long, or $\text{OR}_{\text{low}} - \delta$ for a short.
+* **Breakout:** the first 5-minute bar between 10:00 and 11:00 that trades a buffer $`\delta`$ beyond the range ($`\delta`$ = 10 broker points = 0.10 index points). Entry is at the stop level $`E_i = \text{OR}_{\text{high}} + \delta`$ for a long, or $`\text{OR}_{\text{low}} - \delta`$ for a short.
 * **Clock:** broker timestamps (EET/EEST) are mapped to New York time through the tz database rather than a fixed offset. This matters for the weeks when US and EU daylight saving disagree.
 
 ### Outcome variable
-Forward return at horizon $h$, signed by the breakout side $s_i \in \{-1,+1\}$, normalised by the 14-day Wilder ATR known at the prior session's close, net of the spread at the fill:
+Forward return at horizon $`h`$, signed by the breakout side $`s_i \in \{-1,+1\}`$, normalised by the 14-day Wilder ATR known at the prior session's close, net of the spread at the fill:
 
-$$y_{i,h} \;=\; \frac{s_i\,(C_{t_i+h}-E_i)}{\text{ATR}_i}\;-\;\frac{\text{spread}_{t_i}}{\text{ATR}_i}, \qquad h \in \{15, 30, 60, 120\text{ min},\ \text{flat at 15:30}\}$$
+```math
+y_{i,h} \;=\; \frac{s_i\,(C_{t_i+h}-E_i)}{\text{ATR}_i}\;-\;\frac{\text{spread}_{t_i}}{\text{ATR}_i}, \qquad h \in \{15, 30, 60, 120\text{ min},\ \text{flat at 15:30}\}
+```
 
 The return deliberately ignores stops and targets ("exit-agnostic"). A hypothesis passes or fails on whether price moved, not on how a particular bracket happened to cut the path. ATR normalisation is used instead of R (the range width) because normalising by the range cancels any signal that is itself a function of range width.
 
@@ -48,10 +50,12 @@ Every candidate feature was graded with the same five tests before it could be c
 ### The selection-aware null
 Choosing the best of five weekdays is a search, so the test statistic is the *maximum* gap:
 
-$$T^{\text{obs}} = \max_{d\,\in\,\{\text{Mon..Fri}\}} \left(\bar y_d - \bar y_{\neg d}\right), \qquad
-p = \frac{1}{B}\sum_{b=1}^{B} \mathbf{1}\!\left[\max_d \left(\bar y^{(b)}_d - \bar y^{(b)}_{\neg d}\right) \ge T^{\text{obs}}\right]$$
+```math
+T^{\text{obs}} = \max_{d\,\in\,\{\text{Mon..Fri}\}} \left(\bar y_d - \bar y_{\neg d}\right), \qquad
+p = \frac{1}{B}\sum_{b=1}^{B} \mathbf{1}\!\left[\max_d \left(\bar y^{(b)}_d - \bar y^{(b)}_{\neg d}\right) \ge T^{\text{obs}}\right]
+```
 
-Weekday labels are permuted across sessions $B = 100{,}000$ times and the full search is re-run on each permutation. The Monte-Carlo standard error of $p$ is $\sqrt{p(1-p)/B} \approx 0.0001$.
+Weekday labels are permuted across sessions $`B = 100{,}000`$ times and the full search is re-run on each permutation. The Monte-Carlo standard error of $`p`$ is $`\sqrt{p(1-p)/B} \approx 0.0001`$.
 
 ## Robustness
 
