@@ -1,0 +1,144 @@
+  spread = hi_.mean() - lo_.mean()
+  null[i] = y[bb == nb - 1].mean() - y[bb == 0].mean()
+US100.cash breakouts 1082  (NY 16:30 +30min OR, 60-min entry window)
+baseline forward return fwd60 = +0.0192 ATR (t=+2.51)
+all figures net of the per-bar spread at the fill; signed by the trade
+
+
+### 1. Relative volume in the opening range (vs prior 20 sessions)   [known at 17:00, from the range window's own volume]
+  n=1072   feature known: see note   horizon fwd60
+  Q        n     median    fwd15    fwd30    fwd60   fwd120     flat      t
+  Q1     215     +0.898  +0.0118  +0.0212  +0.0217  +0.0219  +0.0575   1.51
+  Q2     214     +0.969  +0.0136  +0.0179  +0.0305  +0.0430  +0.0747   1.86
+  Q3     214     +0.999  +0.0204  +0.0244  +0.0296  +0.0214  +0.0394   1.93
+  Q4     214     +1.029  -0.0266  -0.0255  -0.0294  -0.0307  +0.0023  -1.61
+  Q5     215     +1.107  +0.0161  +0.0242  +0.0447  +0.0606  +0.0629   2.25
+  Q5-Q1 +0.0230 ATR  95% CI [-0.0250,+0.0710]  boot P=0.172
+  spearman +0.0157 (perm p=0.608)   placebo P=0.348   years agreeing 2/5   IS -0.0175  OOS +0.0546
+  --> none
+
+### 2. Overnight gap, aligned with the trade   [known at 16:30]
+  n=1082   feature known: see note   horizon fwd60
+  Q        n     median    fwd15    fwd30    fwd60   fwd120     flat      t
+  Q1     217     -0.086  +0.0121  +0.0164  +0.0221  +0.0204  +0.0866   1.15
+  Q2     216     -0.028  +0.0029  +0.0210  +0.0368  +0.0475  +0.0534   2.05
+  Q3     216     +0.002  +0.0120  +0.0153  +0.0123  +0.0269  +0.0407   0.81
+  Q4     216     +0.034  +0.0044  +0.0018  +0.0242  +0.0228  +0.0365   1.44
+  Q5     217     +0.087  +0.0057  +0.0055  +0.0006  +0.0009  +0.0135   0.04
+  Q5-Q1 -0.0214 ATR  95% CI [-0.0708,+0.0275]  boot P=0.804
+  spearman -0.0065 (perm p=0.841)   placebo P=0.371   years agreeing 2/5   IS +0.0173  OOS -0.0569
+  --> none
+
+### 3. Prior day's return, aligned   [known at 16:30]
+  n=1082   feature known: see note   horizon fwd60
+  Q        n     median    fwd15    fwd30    fwd60   fwd120     flat      t
+  Q1     217     -0.822  +0.0141  +0.0302  +0.0279  +0.0367  +0.0639   1.47
+  Q2     216     -0.291  +0.0139  +0.0138  +0.0132  +0.0201  +0.0222   0.73
+  Q3     216     +0.014  +0.0028  +0.0174  +0.0297  +0.0507  +0.1221   1.97
+  Q4     216     +0.345  -0.0039  -0.0003  +0.0027  +0.0107  +0.0109   0.16
+  Q5     217     +0.834  +0.0102  -0.0012  +0.0224  +0.0003  +0.0116   1.35
+  Q5-Q1 -0.0055 ATR  95% CI [-0.0543,+0.0441]  boot P=0.584
+  spearman +0.0122 (perm p=0.689)   placebo P=0.830   years agreeing 3/5   IS +0.0113  OOS -0.0246
+  --> none
+
+### 4. Prior day's close location, aligned   [known at 16:30]
+  n=1082   feature known: see note   horizon fwd60
+  Q        n     median    fwd15    fwd30    fwd60   fwd120     flat      t
+  Q1     217     +0.079  +0.0206  +0.0388  +0.0357  +0.0508  +0.0900   1.91
+  Q2     216     +0.263  +0.0001  +0.0015  +0.0001  +0.0030  +0.0105   0.00
+  Q3     216     +0.510  +0.0017  +0.0083  +0.0167  +0.0405  +0.0742   0.93
+  Q4     216     +0.760  +0.0076  +0.0084  +0.0227  -0.0049  -0.0037   1.47
+  Q5     217     +0.931  +0.0071  +0.0029  +0.0208  +0.0290  +0.0593   1.30
+  Q5-Q1 -0.0148 ATR  95% CI [-0.0635,+0.0330]  boot P=0.725
+  spearman +0.0183 (perm p=0.533)   placebo P=0.548   years agreeing 4/5   IS -0.0011  OOS -0.0332
+  --> none
+
+### 5. Breakout level beyond the prior day's high/low   [known at 17:00]
+  n=1082   feature known: see note   horizon fwd60
+  Q        n     median    fwd15    fwd30    fwd60   fwd120     flat      t
+  Q1     217     -1.011  +0.0062  +0.0028  -0.0059  +0.0128  +0.0606  -0.31
+  Q2     216     -0.526  +0.0239  +0.0380  +0.0613  +0.0786  +0.0714   3.33
+  Q3     216     -0.241  -0.0008  +0.0019  +0.0091  +0.0079  -0.0039   0.59
+  Q4     216     +0.052  +0.0105  +0.0059  +0.0172  +0.0054  +0.0581   1.04
+  Q5     217     +0.406  -0.0027  +0.0114  +0.0145  +0.0139  +0.0443   0.91
+  Q5-Q1 +0.0204 ATR  95% CI [-0.0284,+0.0684]  boot P=0.197
+  spearman +0.0111 (perm p=0.716)   placebo P=0.400   years agreeing 3/5   IS +0.0413  OOS -0.0022
+  --> none
+
+### 6. Minutes from range end to the trigger   [known at the trigger itself]
+  n=1082   feature known: see note   horizon fwd60
+  Q        n     median    fwd15    fwd30    fwd60   fwd120     flat      t
+  Q3     594     +0.000  +0.0005  +0.0023  +0.0085  +0.0094  +0.0302   0.79
+  Q4     236     +5.000  +0.0147  +0.0243  +0.0380  +0.0592  +0.0640   2.42
+  Q5     252    +25.000  +0.0170  +0.0234  +0.0268  +0.0241  +0.0668   1.81
+  Q5-Q1 +nan ATR  95% CI [+nan,+nan]  boot P=nan
+  spearman +0.0441 (perm p=0.147)   placebo P=0.000   years agreeing 0/0   IS +nan  OOS +nan
+  --> weak
+
+### 7. Bars that touched the edge before it broke   [known at the trigger]
+  n=1082   feature known: see note   horizon fwd60
+  Q        n     median    fwd15    fwd30    fwd60   fwd120     flat      t
+  Q4     706     +0.000  +0.0053  +0.0076  +0.0132  +0.0127  +0.0348   1.34
+  Q5     376     +1.000  +0.0115  +0.0202  +0.0306  +0.0443  +0.0674   2.54
+  Q5-Q1 +nan ATR  95% CI [+nan,+nan]  boot P=nan
+  spearman +0.0452 (perm p=0.142)   placebo P=0.000   years agreeing 0/0   IS +nan  OOS +nan
+  --> weak
+
+### 8. Overnight range / ATR   [known at 16:30]
+  n=1082   feature known: see note   horizon fwd60
+  Q        n     median    fwd15    fwd30    fwd60   fwd120     flat      t
+  Q1     217     +0.293  +0.0147  +0.0141  +0.0232  +0.0407  +0.0379   1.77
+  Q2     216     +0.400  +0.0121  +0.0231  +0.0332  +0.0495  +0.0684   1.96
+  Q3     216     +0.494  -0.0114  +0.0035  +0.0249  -0.0047  -0.0023   1.40
+  Q4     216     +0.631  +0.0134  +0.0174  +0.0222  +0.0203  +0.0904   1.19
+  Q5     217     +0.884  +0.0082  +0.0019  -0.0074  +0.0126  +0.0363  -0.40
+  Q5-Q1 -0.0306 ATR  95% CI [-0.0750,+0.0140]  boot P=0.911
+  spearman -0.0171 (perm p=0.571)   placebo P=0.206   years agreeing 4/5   IS -0.0409  OOS -0.0194
+  --> none
+
+### 9. Opening range / overnight range   [known at 17:00]
+  n=1082   feature known: see note   horizon fwd60
+  Q        n     median    fwd15    fwd30    fwd60   fwd120     flat      t
+  Q1     217     +0.354  +0.0039  +0.0042  -0.0022  +0.0058  +0.0138  -0.14
+  Q2     216     +0.491  +0.0101  +0.0248  +0.0324  +0.0511  +0.0817   1.87
+  Q3     216     +0.637  +0.0119  +0.0154  +0.0360  +0.0311  +0.0187   2.15
+  Q4     216     +0.803  +0.0137  +0.0050  +0.0218  +0.0232  +0.0826   1.12
+  Q5     217     +1.096  -0.0024  +0.0106  +0.0081  +0.0074  +0.0339   0.50
+  Q5-Q1 +0.0103 ATR  95% CI [-0.0341,+0.0537]  boot P=0.324
+  spearman +0.0044 (perm p=0.882)   placebo P=0.659   years agreeing 3/5   IS +0.0202  OOS +0.0017
+  --> none
+
+### 10. Where the OR sits in the overnight range, aligned   [known at 17:00]
+  n=1082   feature known: see note   horizon fwd60
+  Q        n     median    fwd15    fwd30    fwd60   fwd120     flat      t
+  Q1     217     +0.098  +0.0232  +0.0236  +0.0413  +0.0561  +0.0633   2.27
+  Q2     216     +0.361  +0.0020  +0.0078  +0.0119  +0.0193  +0.0162   0.75
+  Q3     216     +0.600  +0.0059  +0.0075  +0.0178  +0.0156  +0.0419   0.95
+  Q4     216     +0.838  -0.0011  -0.0013  -0.0047  -0.0160  +0.0159  -0.31
+  Q5     217     +1.118  +0.0070  +0.0222  +0.0295  +0.0433  +0.0930   1.75
+  Q5-Q1 -0.0118 ATR  95% CI [-0.0600,+0.0371]  boot P=0.683
+  spearman -0.0131 (perm p=0.668)   placebo P=0.636   years agreeing 2/5   IS -0.0046  OOS -0.0200
+  --> none
+
+### 11. Day of week   [known in advance]
+  day        n    fwd15    fwd30    fwd60   fwd120   t@60
+  Tue      201  -0.0015  -0.0060  -0.0063  -0.0237  -0.44
+  Wed      225  +0.0217  +0.0409  +0.0360  +0.0377   2.24
+  Thu      219  +0.0128  +0.0034  +0.0033  +0.0117   0.22
+  Fri      220  -0.0129  -0.0111  +0.0091  +0.0145   0.53
+
+========================================================================================================
+SUMMARY - ranked by placebo p (the hardest of the five tests)
+========================================================================================================
+  hypothesis                                       n    Q5-Q1  placebo   rho p   years       IS      OOS  verdict
+  ----------------------------------------------------------------------------------------------------
+  6. Minutes from range end to the trigger      1082     +nan    0.000   0.147     0/0     +nan     +nan  weak
+  7. Bars that touched the edge before it bro   1082     +nan    0.000   0.142     0/0     +nan     +nan  weak
+  8. Overnight range / ATR   [known at 16:30]   1082  -0.0306    0.206   0.571     4/5  -0.0409  -0.0194  none
+  1. Relative volume in the opening range (vs   1072  +0.0230    0.348   0.608     2/5  -0.0175  +0.0546  none
+  2. Overnight gap, aligned with the trade      1082  -0.0214    0.371   0.841     2/5  +0.0173  -0.0569  none
+  5. Breakout level beyond the prior day's hi   1082  +0.0204    0.400   0.716     3/5  +0.0413  -0.0022  none
+  4. Prior day's close location, aligned   [k   1082  -0.0148    0.548   0.533     4/5  -0.0011  -0.0332  none
+  10. Where the OR sits in the overnight rang   1082  -0.0118    0.636   0.668     2/5  -0.0046  -0.0200  none
+  9. Opening range / overnight range   [known   1082  +0.0103    0.659   0.882     3/5  +0.0202  +0.0017  none
+  3. Prior day's return, aligned   [known at    1082  -0.0055    0.830   0.689     3/5  +0.0113  -0.0246  none

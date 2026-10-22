@@ -1,0 +1,22 @@
+n=1082   baseline fwd60 +0.0192 ATR
+
+  best SINGLE day  : Fri  diff +0.0405
+  best PAIR of days: Tue+Fri  diff +0.0413
+
+  running 5000 shuffles, redoing the search inside each one...
+
+==============================================================================
+THE TWO NULLS, SIDE BY SIDE
+==============================================================================
+  naive placebo (grouping fixed in advance)   P = 0.0042
+  selection-aware placebo (search redone)     P = 0.0368
+    null of best-pair searches: mean +0.0234, p95 +0.0400, max +0.0668
+    the real result +0.0413 sits at the 96.3th percentile of that null
+
+  best single day, selection-aware            P = 0.0740
+    null of best-single searches: mean +0.0247, p95 +0.0430
+
+==============================================================================
+VERDICT
+==============================================================================
+  The weekday effect survives its own search. Worth carrying.

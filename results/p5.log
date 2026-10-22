@@ -1,0 +1,77 @@
+US100.cash, NY 16:30 +30m opening range, 60-min entry window
+n=1082   baseline fwd60 +0.0192 ATR (t=+2.51)
+every row: group mean minus the rest of the sample, fwd60, net of spread
+
+### PRE-SESSION DRIFT, 5-min, aligned
+  in-group n=563  fwd60 +0.0276 (t=+2.63)   rest n=519 +0.0101
+  difference +0.0175 ATR  95% CI [-0.0129,+0.0477]  boot P=0.127   placebo P=0.244
+  per-year: 2022:+0.0323(n=119)  2023:+0.0053(n=127)  2024:+0.0310(n=134)  2025:+0.0233(n=118)  2026:-0.0322(n=65)
+  years agreeing 4/5    IS +0.0165   OOS +0.0184
+  --> NOT validated  (needs placebo<0.05, >=4/5 years, and both halves same sign)
+
+### PRE-SESSION DRIFT, 15-min, aligned
+  in-group n=546  fwd60 +0.0269 (t=+2.49)   rest n=536 +0.0113
+  difference +0.0156 ATR  95% CI [-0.0141,+0.0457]  boot P=0.152   placebo P=0.305
+  per-year: 2022:+0.0299(n=114)  2023:+0.0124(n=124)  2024:-0.0010(n=123)  2025:+0.0298(n=120)  2026:+0.0001(n=65)
+  years agreeing 4/5    IS +0.0127   OOS +0.0183
+  --> NOT validated  (needs placebo<0.05, >=4/5 years, and both halves same sign)
+
+### PRE-SESSION DRIFT, 30-min, aligned
+  in-group n=531  fwd60 +0.0275 (t=+2.57)   rest n=551 +0.0112
+  difference +0.0163 ATR  95% CI [-0.0137,+0.0461]  boot P=0.144   placebo P=0.280
+  per-year: 2022:+0.0267(n=115)  2023:+0.0013(n=121)  2024:+0.0342(n=115)  2025:+0.0180(n=112)  2026:-0.0083(n=68)
+  years agreeing 4/5    IS +0.0145   OOS +0.0175
+  --> NOT validated  (needs placebo<0.05, >=4/5 years, and both halves same sign)
+
+### PRE-SESSION DRIFT, 60-min, aligned (expected dead)
+  in-group n=536  fwd60 +0.0156 (t=+1.42)   rest n=546 +0.0228
+  difference -0.0072 ATR  95% CI [-0.0368,+0.0227]  boot P=0.680   placebo P=0.638
+  per-year: 2022:+0.0033(n=128)  2023:+0.0137(n=116)  2024:-0.0283(n=119)  2025:-0.0068(n=115)  2026:-0.0213(n=58)
+  years agreeing 3/5    IS -0.0078   OOS -0.0061
+  --> NOT validated  (needs placebo<0.05, >=4/5 years, and both halves same sign)
+
+### LATER BREAK (inside the range at 17:00)
+  in-group n=488  fwd60 +0.0322 (t=+2.99)   rest n=594 +0.0085
+  difference +0.0237 ATR  95% CI [-0.0062,+0.0532]  boot P=0.060   placebo P=0.118
+  per-year: 2022:+0.0099(n=110)  2023:+0.0692(n=114)  2024:+0.0513(n=117)  2025:-0.0197(n=94)  2026:-0.0159(n=53)
+  years agreeing 3/5    IS +0.0466   OOS -0.0024
+  --> NOT validated  (needs placebo<0.05, >=4/5 years, and both halves same sign)
+
+### TUESDAY or FRIDAY
+  in-group n=442  fwd60 +0.0436 (t=+3.30)   rest n=640 +0.0023
+  difference +0.0413 ATR  95% CI [+0.0096,+0.0733]  boot P=0.005   placebo P=0.011
+  per-year: 2022:+0.0173(n=100)  2023:-0.0005(n=96)  2024:+0.0848(n=100)  2025:+0.0592(n=97)  2026:+0.0487(n=49)
+  years agreeing 4/5    IS +0.0203   OOS +0.0670
+  --> VALIDATED
+
+### MONDAY
+  in-group n=201  fwd60 -0.0063 (t=-0.44)   rest n=881 +0.0250
+  difference -0.0313 ATR  95% CI [-0.0639,+0.0019]  boot P=0.969   placebo P=0.111
+  per-year: 2022:-0.0135(n=42)  2023:-0.0115(n=42)  2024:-0.0648(n=47)  2025:-0.0199(n=46)  2026:-0.0574(n=24)
+  years agreeing 5/5    IS -0.0037   OOS -0.0634
+  --> NOT validated  (needs placebo<0.05, >=4/5 years, and both halves same sign)
+
+### DRIFT-aligned AND later break (combined)
+  in-group n=259  fwd60 +0.0323 (t=+2.28)   rest n=823 +0.0151
+  difference +0.0172 ATR  95% CI [-0.0157,+0.0496]  boot P=0.155   placebo P=0.328
+  per-year: 2022:+0.0302(n=50)  2023:+0.0203(n=63)  2024:+0.0650(n=62)  2025:-0.0168(n=51)  2026:-0.0492(n=33)
+  years agreeing 3/5    IS +0.0323   OOS -0.0012
+  --> NOT validated  (needs placebo<0.05, >=4/5 years, and both halves same sign)
+
+========================================================================================================
+US100 FORWARD-RETURN LEDGER  (fwd60, ATR units, net of spread)
+========================================================================================================
+  candidate                                        n      diff  placebo   years        IS       OOS   status
+  ----------------------------------------------------------------------------------------------------
+  PRE-SESSION DRIFT, 5-min, aligned              563   +0.0175    0.244     4/5   +0.0165   +0.0184   -
+  PRE-SESSION DRIFT, 15-min, aligned             546   +0.0156    0.305     4/5   +0.0127   +0.0183   -
+  PRE-SESSION DRIFT, 30-min, aligned             531   +0.0163    0.280     4/5   +0.0145   +0.0175   -
+  PRE-SESSION DRIFT, 60-min, aligned (expecte    536   -0.0072    0.638     3/5   -0.0078   -0.0061   -
+  LATER BREAK (inside the range at 17:00)        488   +0.0237    0.118     3/5   +0.0466   -0.0024   -
+  TUESDAY or FRIDAY                              442   +0.0413    0.011     4/5   +0.0203   +0.0670   PASS
+  MONDAY                                         201   -0.0313    0.111     5/5   -0.0037   -0.0634   -
+  DRIFT-aligned AND later break (combined)       259   +0.0172    0.328     3/5   +0.0323   -0.0012   -
+
+  PASS = placebo < 0.05, >=4/5 years agree, IS and OOS share the sign.
+  Weekday rows additionally need the selection-aware placebo in p4
+  (best-2-of-5 from noise averages +0.023 ATR, p95 +0.040).

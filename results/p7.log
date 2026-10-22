@@ -1,0 +1,18 @@
+### NOT MONDAY  (single grouping, mechanism-backed prior)
+  horizon         diff   placebo   years        IS       OOS
+  fwd15        +0.0110     0.356     3/5   +0.0133   +0.0085
+  fwd30        +0.0221     0.146     5/5   +0.0116   +0.0348
+  fwd60        +0.0313     0.115     5/5   +0.0037   +0.0634
+  fwd120       +0.0582     0.013     5/5   +0.0507   +0.0670
+  fwdflat      +0.0743     0.038     5/5   +0.0874   +0.0594
+
+### per-day means at the long horizon (fwd_flat)
+  Mon   n=201     -0.0144  t=-0.57
+  Tue   n=225     +0.0717  t=+2.63
+  Wed   n=219     -0.0060  t=-0.18
+  Thu   n=220     +0.0336  t=+0.93
+  Fri   n=217     +0.1409  t=+4.58
+
+### selection-aware null at fwd_flat (best 2 of 5, search redone)
+  best pair          real +0.1007   selection-aware P = 0.0016   (noise mean +0.0425, p95 +0.0711)
+  worst single day   real -0.0743   selection-aware P = 0.0768   (noise mean -0.0448, p05 -0.0804)

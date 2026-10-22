@@ -1,0 +1,31 @@
+BEST SINGLE DAY at fwd_flat: real +0.1185  selection-aware P = 0.0017
+  (noise mean +0.0451, p95 +0.0806)
+
+### Is the Friday effect concentrated in option-expiry Fridays?
+  Friday #1 of month  n=51     +0.1692  t=+2.80
+  Friday #2 of month  n=51     +0.1376  t=+1.73
+  Friday #3 of month  n=47     +0.1586  t=+2.67 <- monthly OpEx week
+  Friday #4 of month  n=51     +0.1275  t=+2.23
+  Friday #5 of month  n=17     +0.0568  t=+0.56
+  Fridays EXCLUDING the 3rd  n=170    +0.1360  t=+3.81
+
+### Friday per-year at fwd_flat
+  2022: n=49    +0.1776
+  2023: n=45    +0.1115
+  2024: n=50    +0.1169
+  2025: n=49    +0.1569
+  2026: n=24    +0.1381
+
+### Friday x pre-session drift (5-min, aligned with the trade)
+cell                               n   fwd_flat      t
+  all breakouts                 1082    +0.0461   3.32
+  Friday only                    217    +0.1409   4.58
+  drift-aligned only             563    +0.0788   4.03
+  Friday AND drift-aligned       114    +0.1275   2.99
+  Friday, drift against          103    +0.1557   3.50
+  non-Friday, drift-aligned      449    +0.0664   3.03
+  non-Friday, drift against      416    -0.0252  -1.17
+
+  best cell minus worst cell: +0.1528 ATR  95% CI [+0.0589,+0.2461]  P=0.001
+
+wrote results/breakout_ledger.csv

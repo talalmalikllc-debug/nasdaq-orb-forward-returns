@@ -1,0 +1,47 @@
+US100.cash breakouts 1082   baseline fwd60 +0.0192 ATR (t=+2.51)
+candidates are graded against the REST of the sample, not against zero
+
+### LATER BREAK (price still inside the range at 17:00)
+  in-group n=488  fwd60 +0.0322 (t=+2.99)   rest n=594 +0.0085
+  difference +0.0237 ATR  95% CI [-0.0065,+0.0529]  boot P=0.062   placebo P=0.116
+  per-year: 2022:+0.0099(n=110)  2023:+0.0692(n=114)  2024:+0.0513(n=117)  2025:-0.0197(n=94)  2026:-0.0159(n=53)
+  years agreeing 3/5    IS +0.0466   OOS -0.0024
+  --> NOT validated  (needs placebo<0.05, >=4/5 years, and both halves same sign)
+
+### FRIDAY
+  in-group n=217  fwd60 +0.0516 (t=+2.43)   rest n=865 +0.0111
+  difference +0.0405 ATR  95% CI [-0.0033,+0.0843]  boot P=0.035   placebo P=0.033
+  per-year: 2022:-0.0209(n=49)  2023:-0.0244(n=45)  2024:+0.0757(n=50)  2025:+0.1148(n=49)  2026:+0.0639(n=24)
+  years agreeing 3/5    IS -0.0031   OOS +0.0925
+  --> NOT validated  (needs placebo<0.05, >=4/5 years, and both halves same sign)
+
+### TUESDAY
+  in-group n=225  fwd60 +0.0360 (t=+2.24)   rest n=857 +0.0148
+  difference +0.0212 ATR  95% CI [-0.0141,+0.0567]  boot P=0.121   placebo P=0.257
+  per-year: 2022:+0.0453(n=51)  2023:+0.0215(n=51)  2024:+0.0508(n=50)  2025:-0.0277(n=48)  2026:+0.0095(n=25)
+  years agreeing 4/5    IS +0.0324   OOS +0.0075
+  --> NOT validated  (needs placebo<0.05, >=4/5 years, and both halves same sign)
+
+### TUESDAY or FRIDAY
+  in-group n=442  fwd60 +0.0436 (t=+3.30)   rest n=640 +0.0023
+  difference +0.0413 ATR  95% CI [+0.0097,+0.0732]  boot P=0.006   placebo P=0.004
+  per-year: 2022:+0.0173(n=100)  2023:-0.0005(n=96)  2024:+0.0848(n=100)  2025:+0.0592(n=97)  2026:+0.0487(n=49)
+  years agreeing 4/5    IS +0.0203   OOS +0.0670
+  --> VALIDATED
+
+### MONDAY (the weak one)
+  in-group n=201  fwd60 -0.0063 (t=-0.44)   rest n=881 +0.0250
+  difference -0.0313 ATR  95% CI [-0.0638,+0.0014]  boot P=0.970   placebo P=0.117
+  per-year: 2022:-0.0135(n=42)  2023:-0.0115(n=42)  2024:-0.0648(n=47)  2025:-0.0199(n=46)  2026:-0.0574(n=24)
+  years agreeing 5/5    IS -0.0037   OOS -0.0634
+  --> NOT validated  (needs placebo<0.05, >=4/5 years, and both halves same sign)
+
+================================================================================================
+LEDGER - forward-return predictive value on US100, fwd60
+================================================================================================
+  candidate                                          n      diff  placebo   years        IS       OOS
+  LATER BREAK (price still inside the range at     488   +0.0237    0.116     3/5   +0.0466   -0.0024  no
+  FRIDAY                                           217   +0.0405    0.033     3/5   -0.0031   +0.0925  no
+  TUESDAY                                          225   +0.0212    0.257     4/5   +0.0324   +0.0075  no
+  TUESDAY or FRIDAY                                442   +0.0413    0.004     4/5   +0.0203   +0.0670  VALIDATED
+  MONDAY (the weak one)                            201   -0.0313    0.117     5/5   -0.0037   -0.0634  no
