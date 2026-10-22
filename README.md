@@ -115,4 +115,4 @@ cd scripts && for s in p1_batch p2_trigger_delay p3_validate p4_selection_aware 
 Random seeds are fixed, and `p4` reproduces its logged output byte-for-byte.
 
 ---
-*Author: Muhammad Talal Malik · Business Data Analytics, COMSATS University*
+*Author: Muhammad Talal Malik*
